@@ -3,6 +3,11 @@ resource "random_string" "random" {
   special = false
 }
 
+resource "random_integer" "random" {
+    min = 1
+    max = 10000
+}
+
 resource "aws_s3_bucket" "this" {
-    bucket = "bucket-${random_string.random.result}"
+    bucket = "random-bucket-${random_string.random.result}-${random_integer.random.result}"
 }
