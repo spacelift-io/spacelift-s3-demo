@@ -1,5 +1,5 @@
 resource "random_string" "random" {
-  length = 5
+  length = 10
 }
 
 resource "aws_s3_bucket" "this" {
