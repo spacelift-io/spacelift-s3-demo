@@ -11,4 +11,12 @@ resource "random_integer" "random" {
 
 resource "aws_s3_bucket" "this" {
     bucket = "random-bucket-${random_string.random.result}-${random_integer.random.result}"
+
+    tags = {
+      Name = var.name
+    }
+}
+
+output "variable" {
+    value = var.name
 }
